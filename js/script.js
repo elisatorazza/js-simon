@@ -30,14 +30,21 @@ $(document).ready(function(){
       listaControllo.push(numeroUtente);
     }
   }
-}, 3000);
-  console.log(listaControllo);
+  if (listaControllo.length == 0) {
+    alert ("Non ti sei ricordato nessun numero!");
+  } else {
+   alert("Ti sei ricordato " + listaControllo.length +" numeri") ;
+  }
+}, 30000);
+
+
+
 
   // Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
 
 
 
-  // alert("Ti sei ricordato" + listaControllo.indexOf()+1 +"numeri") ;
+  //
 
 
 
