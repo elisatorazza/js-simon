@@ -3,31 +3,42 @@ $(document).ready(function(){
   var listaNumeri = [];
 
   for (var i = 0; i<5; i++) {
-    var numeroRandom = Math.floor(Math.random() * 100);
+    var numeroRandom = Math.floor(Math.random() * 100) + 1;
     listaNumeri.push(numeroRandom);
   }
   alert(listaNumeri);
   // Dopo 30 secondi l’utente deve inserire, un prompt alla volta, i numeri che ha visto precedentemente.
+  function controllo_numero(lista, numero){
+    var find = false;
+    for (var i = 0; i < lista.length; i++) {
+      if (lista[i] == numero) {
+        find = true;
+      }
+    }
+    return find;
+  }
+
   setTimeout(function(){
     var listaNumUtente = [];
-
+    var listaControllo = [];
     console.log(listaNumUtente);
+    console.log(listaControllo);
     for (var i = 0; i<5; i++) {
     var numeroUtente = parseInt(prompt("Inserisci uno dei cinque numeri"));
     listaNumUtente.push(numeroUtente);
+    if (controllo_numero(listaNumeri, numeroUtente) == true) {
+      listaControllo.push(numeroUtente);
+    }
   }
-
-  // Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
-  var listaControllo = [];
+}, 3000);
   console.log(listaControllo);
 
-  for (var i = 0; i<5; i++) {
-    var trovato = false;
-    if (listaNumUtente[i] == listaNumeri[i]) {
-      trovato = true;
-      listaControllo.push(listaNumeri[i]);
-    }
-  }}, 3000);
-console.log(listaControllo);
+  // Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
+
+
+
+  // alert("Ti sei ricordato" + listaControllo.indexOf()+1 +"numeri") ;
+
+
 
 });
