@@ -33,7 +33,7 @@ $(document).ready(function(){
   if (listaControllo.length == 0) {
     alert ("Non ti sei ricordato nessun numero!");
   } else {
-   alert("Ti sei ricordato " + listaControllo.length +" numeri") ;
+   alert("Ti sei ricordato " + listaControllo.length +" numeri: " + listaControllo);
   }
 }, 30000);
 
